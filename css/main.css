@@ -744,7 +744,7 @@ body {
 /* ========== BOTÓN VER ANUNCIANTES ========== */
 .banner-toggle-btn {
     position: fixed;
-    bottom: 20px;
+    bottom: 80px;
     right: 20px;
     background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
     color: white;
@@ -754,8 +754,9 @@ body {
     font-weight: 600;
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    z-index: 80;
+    z-index: 1000;
     transition: all 0.3s;
+    display: none;
 }
 
 .banner-toggle-btn:hover {
@@ -765,6 +766,15 @@ body {
 
 .banner-toggle-btn i {
     margin-right: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .banner-toggle-btn {
+        display: block;
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+        bottom: 70px;
+    }
 }
 
 /* ========== RESPONSIVE ========== */

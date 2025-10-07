@@ -103,8 +103,6 @@ VV.banner = {
     
     // Agregar botón para ver todos
     addViewAllButton() {
-        if (VV.banner.currentBanners.length <= 3) return;
-        
         let button = document.getElementById('banner-toggle-btn');
         if (!button) {
             button = document.createElement('button');
@@ -113,8 +111,14 @@ VV.banner = {
             document.body.appendChild(button);
         }
         
-        button.innerHTML = '<i class="fas fa-ad"></i> Ver Todos los Anunciantes';
-        button.onclick = () => VV.banner.showAllSponsors();
+        // Siempre mostrar en móviles si hay anunciantes
+        if (VV.banner.currentBanners.length > 0) {
+            button.innerHTML = '<i class="fas fa-bullhorn"></i> Anunciantes';
+            button.onclick = () => VV.banner.showAllSponsors();
+            button.style.display = '';
+        } else {
+            button.style.display = 'none';
+        }
     },
     
     // Mostrar todos los anunciantes en folleto
